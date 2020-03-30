@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 def xerox(copies, xerox1, xerox2)
+  # number of copies that we will compare
   total_copies = 0
+  # current time
   seconds = 0
 
+  # calculating delay at the very first case
   if xerox1 <= xerox2
     xerox1_delay = 0
     xerox2_delay = xerox1
@@ -14,16 +17,22 @@ def xerox(copies, xerox1, xerox2)
 
   loop do
     seconds += 1
+
+    # Checking whether first xerox give us a copy at the moment
     if xerox1 + xerox1_delay == seconds
       total_copies += 1
+      # Setting time when it have to give a copy next time
       xerox1_delay += xerox1
     end
 
+    # Checking whether second xerox give us a copy at the moment
     if xerox2 + xerox2_delay == seconds
       total_copies += 1
+      # Setting time when it have to give a copy next time
       xerox2_delay += xerox2
     end
 
+    # End if we've got enough copies
     break if total_copies >= copies
   end
 

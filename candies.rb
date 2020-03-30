@@ -16,6 +16,7 @@ last = w + 1
 (0..last).step(x).each do |candy|
   (0..last).step(y).each do |tangerine|
     (0..last).step(z).each do |apple|
+      # Checking every possible variation
       sum = candy + tangerine + apple
       variations += 1 if sum == w
     end
